@@ -26,7 +26,7 @@ function TestTraditionalML() {
 
     try {
       const response = await axios.post(
-        "http://127.0.0.1:5000/predict",
+        "http://127.0.0.1:5000/predict_ml",
         formData,
         {
           headers: {

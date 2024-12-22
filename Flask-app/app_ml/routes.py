@@ -22,11 +22,11 @@ class_names = ['Healthy', 'Powdery', 'Rust']
 # app.add_url_rule('/', 'home', home_page)
 
 
-@app.route('/predict', methods=['POST'])
+@app.route('/dnn_predict', methods=['POST'])
 def predict():
     print('inside')
     try:
-
+        TARGET_SIZE = (224, 224)
        
         if 'image' not in request.files:
             return jsonify({'error': 'No image file provided.'}), 400
@@ -34,10 +34,13 @@ def predict():
         image_file = request.files['image']
 
         img = Image.open(image_file)
-
       
-        img_array = Image.img_to_array(img)
+        img = img.resize(TARGET_SIZE)
+
+        img_array = np.array(img)
+
         img_array = np.expand_dims(img_array, axis=0) / 255.0  
+
         predictions = model.predict(img_array)
         print(predictions)  
 
@@ -73,7 +76,6 @@ def predict_ml():
         image_file.save(filepath)
 
         img = imread(filepath)
-
         
         # Convert the image to RGB (in case it's in a different mode)
         # img = img.convert('RGB')
@@ -99,11 +101,10 @@ def predict_ml():
         
         hsv_features_pca = pca.transform(hsv_features_scaled)
         hsv_features_pca= pd.DataFrame(hsv_features_pca)
-        print(hsv_features_df)
+
         predictions = xgb_model.predict(hsv_features_pca)
-        print(predictions)
+
         
-        predicted_class = np.argmax(predictions, axis=1)[0]
         prediction_percentages = predictions[0] * 100
         prediction_probabilities = xgb_model.predict_proba(hsv_features_pca)
         print("Prediction Probabilities:", prediction_probabilities)

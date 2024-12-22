@@ -1,0 +1,39 @@
+.home-page {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+    background-size: cover; /* Maintains aspect ratio */
+    background-repeat: no-repeat; /* Avoids tiling */
+    background-position: center; /* Keeps the image centered */
+    color: white;
+    text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.8);
+  }
+  
+  h1 {
+    font-size: 2.5rem;
+    margin-bottom: 2rem;
+  }
+  
+  .button-container {
+    display: flex;
+    gap: 1rem;
+  }
+  
+  .nav-button {
+    padding: 1rem 2rem;
+    font-size: 1.2rem;
+    border: none;
+    border-radius: 5px;
+    background-color: rgba(0, 128, 0, 0.8); /* Green with transparency */
+    color: white;
+    cursor: pointer;
+    transition: transform 0.2s, background-color 0.2s;
+  }
+  
+  .nav-button:hover {
+    background-color: rgba(0, 128, 0, 1); /* Fully opaque green */
+    transform: scale(1.1);
+  }
+  

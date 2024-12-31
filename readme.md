@@ -154,7 +154,7 @@ We welcome contributions to enhance the project. Please follow these steps:
     <td align="center">
       <img src="https://avatars.githubusercontent.com/mukhaledd" width="100px;" alt="Mukhaled"/>
       <br />
-      <a href="https://github.com/mukhaledd">Mukhaled</a>
+      <a href="https://github.com/mukhaledd">Mohamed Khaled</a>
     </td>
   </tr>
 </table>
